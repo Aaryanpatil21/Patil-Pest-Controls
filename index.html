@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patil Pest Controls | Precision Pest Management</title>
+    <meta name="description" content="Precision-driven pest control designed to restore comfort, cleanliness, and confidence to residential and commercial spaces in Pimpri-Chinchwad.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* =========================================
+           PREMIUM THEME VARIABLES
+           ========================================= */
+        :root {
+            /* BRIGHT MODE - Sophisticated & Clean */
+            --bg-main: #f5f7f6;
+            --bg-surface: #ffffff;
+            --bg-glass: rgba(255, 255, 255, 0.85);
+            --text-main: #1a2620;
+            --text-muted: #5e7065;
+            --primary: #125c34;
+            --primary-hover: #0c4224;
+            --accent: #d4a017;
+            --border-glass: rgba(18, 92, 52, 0.08);
+            --shadow-subtle: 0 12px 35px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 20px 45px rgba(18, 92, 52, 0.08);
+            --hero-overlay: linear-gradient(135deg, rgba(245, 247, 246, 0.96) 0%, rgba(245, 247, 246, 0.75) 100%);
+            --wa-color: #25D366;
+            --protection-glow: rgba(18, 92, 52, 0.1);
+        }
+
+        [data-theme="dark"] {
+            /* DARK MODE - Deep, Modern & Elegant */
+            --bg-main: #0c120e;
+            --bg-surface: #131c16;
+            --bg-glass: rgba(19, 28, 22, 0.75);
+            --text-main: #e8f0ec;
+            --text-muted: #94a89d;
+            --primary: #34d374; 
+            --primary-hover: #2bb362;
+            --accent: #e5b324;
+            --border-glass: rgba(52, 211, 116, 0.12);
+            --shadow-subtle: 0 12px 35px rgba(0, 0, 0, 0.4);
+            --shadow-hover: 0 20px 45px rgba(0, 0, 0, 0.6);
+            --hero-overlay: linear-gradient(135deg, rgba(12, 18, 14, 0.96) 0%, rgba(12, 18, 14, 0.75) 100%);
+            --protection-glow: rgba(52, 211, 116, 0.15);
+        }
+
+        /* =========================================
+           RESET & TYPOGRAPHY
+           ========================================= */
+        * {
+            margin: 0; padding: 0; box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            overflow-x: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        body::before {
+            content: ''; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background-image: radial-gradient(var(--border-glass) 1px, transparent 1px);
+            background-size: 50px 50px; pointer-events: none; z-index: -1; opacity: 0.7;
+        }
+
+        h1, h2, h3, h4 { color: var(--text-main); transition: color 0.5s ease; font-weight: 700; letter-spacing: -0.5px; }
+        .highlight { color: var(--primary); }
+        .container { width: 90%; max-width: 1250px; margin: 0 auto; padding: 7rem 0; position: relative; z-index: 2; }
+        
+        .eyebrow {
+            font-size: 0.85rem; font-weight: 600; letter-spacing: 2.5px;
+            text-transform: uppercase; color: var(--primary);
+            margin-bottom: 1.2rem; display: inline-block;
+        }
+
+        /* =========================================
+           PREMIUM BUTTONS
+           ========================================= */
+        .btn {
+            padding: 16px 36px; border-radius: 8px; font-weight: 600; text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+            cursor: pointer; border: 1px solid transparent;
+            font-size: 0.95rem; backdrop-filter: blur(5px); letter-spacing: 0.5px;
+        }
+        
+        .btn-whatsapp {
+            background: var(--wa-color); color: #fff;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.25);
+        }
+        .btn-whatsapp:hover { 
+            transform: translateY(-4px); 
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4); 
+            color: #fff; 
+        }
+
+        .btn-primary {
+            background: transparent; color: var(--text-main);
+            border: 2px solid var(--border-glass);
+            box-shadow: var(--shadow-subtle);
+        }
+        .btn-primary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        /* =========================================
+           NAVIGATION
+           ========================================= */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 1.5rem 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            backdrop-filter: blur(20px); border-bottom: 1px solid transparent;
+        }
+        nav.scrolled { 
+            background: var(--bg-glass); border-bottom: 1px solid var(--border-glass); 
+            padding: 1rem 5%; box-shadow: var(--shadow-subtle); 
+        }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--text-main); text-decoration: none; letter-spacing: -0.5px;}
+        .logo span { color: var(--primary); font-weight: 400;}
+        
+        .nav-right { display: flex; align-items: center; gap: 2.5rem; }
+        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: 0.3s; font-size: 0.95rem;}
+        .nav-links a:hover { color: var(--primary); }
+        
+        #theme-toggle {
+            background: var(--bg-surface); border: 1px solid var(--border-glass);
+            color: var(--text-main); font-size: 1.1rem; cursor: pointer;
+            width: 44px; height: 44px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.4s ease; box-shadow: var(--shadow-subtle);
+        }
+        #theme-toggle:hover { transform: rotate(15deg) scale(1.05); border-color: var(--primary); }
+
+        /* =========================================
+           CINEMATIC HERO SECTION
+           ========================================= */
+        #hero {
+            min-height: 100vh; display: flex; align-items: center; position: relative; padding-top: 80px;
+            background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80');
+            background-size: cover; background-position: center; background-attachment: fixed;
+        }
+        .hero-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--hero-overlay); z-index: 1; transition: background 0.5s ease;
+        }
+        .hero-content {
+            max-width: 750px; position: relative; z-index: 2; animation: fadeUp 1.2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+        }
+        .hero-content h1 { font-size: 4.8rem; line-height: 1.05; margin-bottom: 1.5rem; font-weight: 800;}
+        .hero-content p { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 2.5rem; line-height: 1.7; font-weight: 300;}
+        .hero-actions { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+        .trust-badge { 
+            margin-top: 3.5rem; display: inline-flex; align-items: center; gap: 12px; 
+            padding: 12px 24px; background: var(--bg-surface); border-radius: 40px; 
+            border: 1px solid var(--border-glass); font-size: 0.9rem; font-weight: 500; 
+            color: var(--text-muted); box-shadow: var(--shadow-subtle);
+        }
+
+        /* =========================================
+           PREMIUM SERVICE CARDS
+           ========================================= */
+        .section-header { text-align: center; margin-bottom: 4.5rem; }
+        .section-header h2 { font-size: 3rem; margin-bottom: 1rem; }
+        .section-header p { color: var(--text-muted); font-size: 1.15rem; font-weight: 300; }
+
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; }
+        .service-card {
+            background: var(--bg-surface); border: 1px solid var(--border-glass);
+            border-radius: 12px; padding: 3.5rem 2.5rem; text-align: center;
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: var(--shadow-subtle); position: relative; overflow: hidden;
+        }
+        .service-card::after {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+            background: var(--primary); transform: scaleX(0); transition: 0.5s ease; transform-origin: left;
+        }
+        .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); border-color: transparent; }
+        .service-card:hover::after { transform: scaleX(1); }
+        .service-icon { font-size: 3rem; margin-bottom: 1.5rem; display: inline-block; transition: transform 0.5s; opacity: 0.9;}
+        .service-card:hover .service-icon { transform: translateY(-5px); }
+        .service-card h3 { font-size: 1.4rem; margin-bottom: 1rem; }
+        .service-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem; line-height: 1.7; font-weight: 300;}
+        .service-link {
+            color: var(--primary); text-decoration: none; font-weight: 600; font-size: 0.95rem;
+            display: inline-flex; align-items: center; gap: 8px; transition: 0.3s;
+        }
+        .service-card:hover .service-link { gap: 12px; }
+
+        /* =========================================
+           PESTS SECTION (FIXED IMAGERY & VISIBILITY)
+           ========================================= */
+        #pests { background-color: var(--bg-surface); position: relative; }
+        .pest-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+        .pest-card {
+            height: 280px; border-radius: 12px; position: relative; overflow: hidden;
+            display: flex; align-items: flex-end; padding: 2rem;
+            box-shadow: var(--shadow-subtle); transition: 0.5s; text-decoration: none;
+            background-color: #1a2620;
+        }
+        .pest-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover; background-position: center; 
+            transition: transform 0.8s ease; z-index: 1;
+        }
+        
+        /* Clear Overlay so images show brightly */
+        .pest-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.1));
+            z-index: 2; transition: background 0.5s ease;
+        }
+        
+        .pest-card h4 { 
+            position: relative; z-index: 3; color: white; font-size: 1.45rem; 
+            font-weight: 700; transform: translateY(8px); transition: 0.5s ease;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+        }
+        
+        .pest-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+        .pest-card:hover .pest-bg { transform: scale(1.1); }
+        .pest-card:hover .pest-overlay { 
+            background: linear-gradient(to top, rgba(0,0,0,0.5), rgba(18,92,52,0.3)); 
+        }
+        .pest-card:hover h4 { color: #ffffff; transform: translateY(0); }
+
+        /* =========================================
+           PROTECTION VISUAL
+           ========================================= */
+        #protection {
+            padding: 9rem 0; position: relative; overflow: hidden;
+            background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80');
+            background-size: cover; background-position: center; background-attachment: fixed;
+        }
+        .protect-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--bg-glass); backdrop-filter: blur(12px); z-index: 1;
+        }
+        .protect-content {
+            position: relative; z-index: 2; text-align: center; max-width: 800px; margin: 0 auto;
+        }
+        .shield-visual {
+            width: 120px; height: 120px; margin: 0 auto 3rem auto;
+            border-radius: 50%; border: 1px solid var(--border-glass);
+            display: flex; align-items: center; justify-content: center; font-size: 3rem;
+            box-shadow: 0 0 60px var(--protection-glow); position: relative;
+            background: var(--bg-surface);
+        }
+        .protect-content h2 { font-size: 3.5rem; margin-bottom: 1.5rem; }
+        .protect-content p { color: var(--text-muted); font-size: 1.2rem; font-weight: 300; line-height: 1.8; }
+
+        /* =========================================
+           CONTACT SECTION
+           ========================================= */
+        #contact { text-align: center; background: var(--bg-main); border-top: 1px solid var(--border-glass); padding-bottom: 8rem;}
+        .contact-box {
+            background: var(--bg-surface); border: 1px solid var(--border-glass);
+            border-radius: 16px; padding: 6rem 4rem; max-width: 900px; margin: 0 auto;
+            box-shadow: var(--shadow-subtle); position: relative;
+        }
+        .contact-box h2 { font-size: 3.8rem; margin-bottom: 1.5rem; }
+        .contact-box p { color: var(--text-muted); font-size: 1.2rem; margin-bottom: 3.5rem; font-weight: 300; }
+        .contact-actions { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+
+        /* =========================================
+           MOBILE FIXED CTA
+           ========================================= */
+        .mobile-cta {
+            display: none; position: fixed; bottom: 0; left: 0; width: 100%;
+            background: var(--bg-surface); backdrop-filter: blur(20px);
+            border-top: 1px solid var(--border-glass); z-index: 1000;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.06);
+        }
+        .mobile-cta a {
+            flex: 1; text-align: center; padding: 18px; color: var(--text-main);
+            text-decoration: none; font-weight: 600; font-size: 0.95rem;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+        .m-call { border-right: 1px solid var(--border-glass); }
+        .m-wa { color: var(--wa-color) !important; }
+
+        /* Animations */
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero-content h1 { font-size: 3.8rem; }
+            .contact-box h2 { font-size: 2.8rem; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-cta { display: flex; }
+            body { padding-bottom: 70px; }
+            .hero-content h1 { font-size: 3rem; }
+            .contact-box { padding: 4rem 2rem; }
+            .hero-actions { flex-direction: column; width: 100%; }
+            .hero-actions .btn, .contact-actions .btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <a href="#" class="logo">Patil <span>Pest Controls</span></a>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#pests">Pests</a>
+                <a href="#protection">Process</a>
+                <a href="https://wa.me/919422096303?text=Hello%2C%20I%20would%20like%20to%20request%20a%20quotation%20for%20pest-control%20services.%20Please%20let%20me%20know%20the%20details%20required." target="_blank" class="btn btn-primary" style="padding: 10px 24px; font-size: 0.85rem;">Get a Quote</a>
+            </div>
+            <button id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <span class="eyebrow">Professional Pest Management</span>
+            <h1>Precision Protection.<br><span class="highlight">Uncompromised Cleanliness.</span></h1>
+            <p>Strategic pest management designed to restore comfort and confidence to your residential or commercial space in Pimpri-Chinchwad.</p>
+            
+            <div class="hero-actions">
+                <a href="https://wa.me/919422096303?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20your%20pest-control%20services.%20Could%20you%20please%20share%20the%20available%20options%20and%20details%3F" target="_blank" class="btn btn-whatsapp">
+                    <span style="font-size: 1.2rem;">💬</span> WhatsApp Us
+                </a>
+                <a href="tel:9422096303" class="btn btn-primary">
+                    📞 Call Now
+                </a>
+            </div>
+            
+            <div class="trust-badge">
+                🛡️ Expertise • Reliability • Rapid Response
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="container">
+        <div class="section-header">
+            <span class="eyebrow">Comprehensive Coverage</span>
+            <h2>Precision Solutions for <span class="highlight">Persistent Pests.</span></h2>
+            <p>Targeted treatments designed for specific threats to your environment.</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🐜</div>
+                <h3>Termite Control</h3>
+                <p>Comprehensive structural defense designed to address active colonies and help safeguard your property's foundation.</p>
+                <a href="https://wa.me/919422096303?text=Hello%2C%20I%20am%20looking%20for%20professional%20termite-control%20services.%20Could%20you%20please%20share%20the%20available%20treatment%20options%3F" target="_blank" class="service-link">Explore Treatment →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🪳</div>
+                <h3>Cockroach Control</h3>
+                <p>Strategic baiting and targeted treatments to address infestations at their source, restoring a hygienic environment.</p>
+                <a href="https://wa.me/919422096303?text=Hello%2C%20I%20would%20like%20information%20about%20cockroach-control%20services%20for%20my%20property." target="_blank" class="service-link">Explore Treatment →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🦟</div>
+                <h3>Mosquito Control</h3>
+                <p>Specialized fogging and source reduction protocols to help maintain a safer, more comfortable outdoor and indoor space.</p>
+                <a href="https://wa.me/919422096303?text=Hello%2C%20I%20am%20interested%20in%20mosquito-control%20services.%20Could%20you%20please%20provide%20more%20details%3F" target="_blank" class="service-link">Explore Treatment →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🐁</div>
+                <h3>Rodent Control</h3>
+                <p>Strategic trapping and exclusion systems designed to effectively manage rodent presence and secure your premises.</p>
+                <a href="https://wa.me/919422096303?text=Hello%2C%20I%20would%20like%20information%20about%20rodent-control%20services%20for%20my%20premises." target="_blank" class="service-link">Explore Treatment →</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="pests">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">Target Identification</span>
+                <h2>Know the Intruder. <span class="highlight">Eliminate the Threat.</span></h2>
+                <p>Expert identification is the first step to effective management.</p>
+            </div>
+            
+            <div class="pest-grid">
+                
+                <a href="https://wa.me/919422096303?text=Hello%2C%20I%20am%20looking%20for%20professional%20termite-control%20services." target="_blank" class="pest-card">
+                    <div class="pest-bg" style="background-image: url('https://ardentpest.com.sg/wp-content/uploads/2024/12/Termites-Control-1.webp');"></div>
+                    <div class="pest-overlay"></div>
+                    <h4>Termites</h4>
+                </a>
+
+                <a href="https://wa.me/919422096303?text=Hello%2C%20I%20would%20like%20information%20about%20cockroach-control%20services." target="_blank" class="pest-card">
+                    <div class="pest-bg" style="background-image: url('https://proguardpest.com/wp-content/uploads/2025/10/the-complete-guide-to-cockroach-pest-control-services-that-lasts-interior-treatment.webp');"></div>
+                    <div class="pest-overlay"></div>
+                    <h4>Cockroaches</h4>
+                </a>
+
+                <a href="https://wa.me/919422096303?text=Hello%2C%20I%20am%20interested%20in%20mosquito-control%20services." target="_blank" class="pest-card">
+                    <div class="pest-bg" style="background-image: url('https://www.goodluckpestcontrol.com/wp-content/uploads/2026/01/image1-3-1024x683.jpg');"></div>
+                    <div class="pest-overlay"></div>
+                    <h4>Mosquitoes</h4>
+                </a>
+
+                <a href="https://wa.me/919422096303?text=Hello%2C%20I%20would%20like%20information%20about%20rodent-control%20services." target="_blank" class="pest-card">
+                    <div class="pest-bg" style="background-image: url('https://i5.walmartimages.com/seo/TwinTech-Large-Mouse-Trap-Mice-Rats-6-Pack-Durable-Rat-Traps-Reusable-Mouse-Traps-Hygienic-Rodent-Control-Traps-Large-Size-Rats-Mice-Traps-Indoor-Hom_39787381-d384-4729-8fb2-4209b58356eb.b2dd1eeaa41e3bc2d7e50c811509b6e5.jpeg');"></div>
+                    <div class="pest-overlay"></div>
+                    <h4>Rodents</h4>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="protection">
+        <div class="protect-overlay"></div>
+        <div class="container protect-content">
+            <div class="shield-visual">🛡️</div>
+            <span class="eyebrow">From Detection to Protection</span>
+            <h2>Protection That Goes <span class="highlight">Beyond the Surface.</span></h2>
+            <p>Identify the source. Address the infestation. Help keep your environment cleaner, safer, and more comfortable with our strategic approach.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <div class="contact-box">
+            <span class="eyebrow">Ready for a Change?</span>
+            <h2>Your Space <span class="highlight">Deserves Better.</span></h2>
+            <p>Take the first step toward a restored environment. We are ready to assist you today.</p>
+            
+            <div class="contact-actions">
+                <a href="https://wa.me/919422096303?text=Hello%2C%20I%20would%20like%20to%20schedule%20a%20pest-control%20service.%20Please%20let%20me%20know%20the%20available%20options." target="_blank" class="btn btn-whatsapp" style="font-size: 1.05rem; padding: 18px 40px;">
+                    <span style="font-size: 1.3rem;">💬</span> Start a Conversation
+                </a>
+                <a href="tel:9422096303" class="btn btn-primary" style="font-size: 1.05rem; padding: 18px 40px;">
+                    📞 Contact 9422096303
+                </a>
+            </div>
+            <p style="margin-top: 3.5rem; font-size: 0.95rem; margin-bottom: 0;">📍 Serving Pimpri-Chinchwad & Surrounding Regions • ✉️ shampatil26969@gmail.com</p>
+        </div>
+    </section>
+
+    <div class="mobile-cta">
+        <a href="tel:9422096303" class="m-call">📞 Call Now</a>
+        <a href="https://wa.me/919422096303?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20your%20pest-control%20services.%20Could%20you%20please%20share%20the%20available%20options%20and%20details%3F" target="_blank" class="m-wa">💬 WhatsApp</a>
+    </div>
+
+    <script>
+        // --- NAVBAR SCROLL EFFECT ---
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+
+        // --- THEME SWITCHER LOGIC ---
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        // Check local storage or system preference on load
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+            htmlElement.setAttribute('data-theme', 'dark');
+            themeToggle.textContent = '☀️';
+        } else {
+            htmlElement.setAttribute('data-theme', 'light');
+            themeToggle.textContent = '🌙';
+        }
+
+        // Toggle functionality
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            let newTheme;
+
+            if (currentTheme === 'light') {
+                newTheme = 'dark';
+                themeToggle.textContent = '☀️';
+            } else {
+                newTheme = 'light';
+                themeToggle.textContent = '🌙';
+            }
+
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
+</body>
+</html>
